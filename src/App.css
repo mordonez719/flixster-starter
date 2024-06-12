@@ -1,3 +1,7 @@
+header{
+  background-color: blue;
+}
+
 .App {
   text-align: center;
 }
@@ -10,6 +14,18 @@
   justify-content: space-evenly;
   color: white;
   padding: 20px;
+  font-size: 30px;
+}
+
+.App-footer {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
+  padding: 20px;
+  font-size: 30px;
 }
 
 @media (max-width: 600px) {
@@ -25,4 +41,11 @@
   .search-bar form {
     flex-direction: column;
   }
+}
+
+section{
+  align-items: stretch;
+  height: auto;
+  /* border: 2px dashed purple; */
+  justify-content: space-evenly;
 }
