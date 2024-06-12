@@ -7,3 +7,10 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+#load-more{
+    position: relative;
+    margin: 5px;
+    margin-bottom: 10px;
+    /* width:max-content; */
+}

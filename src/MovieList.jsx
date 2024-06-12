@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 // let movie_data = now-playing[results]
 
 
-
 function MovieList() {
     const [apiData, fillData] = useState([]);
 
@@ -29,7 +28,6 @@ function MovieList() {
 
     useEffect(() => {
         fetchData();
-
     }, []);
 
     // let movie_data = data.results;
@@ -37,11 +35,11 @@ function MovieList() {
     // console.log(apiData);
     // console.log(apiData.length);
 
-    for (let i = 0; i < apiData.length; i++){
-        if (apiData[i]){
-            console.log(apiData[i]);
-        }
-    }
+    // for (let i = 0; i < apiData.length; i++){
+    //     if (apiData[i]){
+    //         // console.log(apiData[i]);
+    //     }
+    // }
 
     // let testTitle = apiData[0].original_title;
     // console.log(apiData[0]);
@@ -55,13 +53,35 @@ function MovieList() {
     //     let load = true;
     // }
     let movie_cards = [];
-
-    apiData.forEach((movie, index) => {
+    
+    for (let i = 0; i < 10; i++){
+        // console.log(i);
+        let movie = apiData[i];
+        // console.log(movie);
         if (movie){
-            movie_cards.push(<MovieCard title={movie.original_title} img={movie.poster_path} rating={movie.vote_average}>
+            // console.log("true");
+            movie_cards.push(<MovieCard id={i} title={movie.original_title} img={"https://image.tmdb.org/t/p/w220_and_h330_face" + movie.poster_path} rating={movie.vote_average}>
                 </MovieCard>);
-        }
-    })
+            console.log(movie_cards);
+        };
+    };
+    // apiData.forEach((movie, index) => {
+    //     if (movie){
+    //         movie_cards.push(<MovieCard id={index} title={movie.original_title} img={movie.poster_path} rating={movie.vote_average}>
+    //             </MovieCard>);
+    //     }
+    // })
+
+    function loadMore(){
+        for (let i = movie_cards.length; i < movie_cards.length + 10; i++){
+            let movie = apiData[i];
+            if (movie){
+                movie_cards.push(<MovieCard id={i} title={movie.original_title} img="https://image.tmdb.org/t/p/w220_and_h330_face{movie.poster_path}" rating={movie.vote_average}>
+                    </MovieCard>);
+                console.log(movie_cards);
+            };
+        };
+    }
 
     return (
         <>
@@ -69,12 +89,14 @@ function MovieList() {
                 <>
                     {movie_cards}
                 </>
+                <>
+                <button id='load-more'>  Load More  </button>
+                </>
                 {/* {apiData[0] ? (
                 <MovieCard title={apiData[0].original_title} img={apiData[0].poster_path} rating={apiData[0].vote_average}>
                 </MovieCard>
             ) : (<p>Loading...</p>)
             } */}
-
             </div>
         </>
     );
