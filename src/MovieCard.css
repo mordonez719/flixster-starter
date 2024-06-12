@@ -6,31 +6,34 @@
     border: 3px solid #5814a0;
     background-color: aliceblue;
     width: 200px;
-    /* height:fit-content; */
-    height: 400px;
+    height:fit-content;
+    max-height: 400px;
     padding: 1px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
+    /* overflow: hidden; */
+    gap: 5px;
 }
 
-h2{
+.movie-title{
     font-size: large;
     padding: 1px;
 }
 
-h3{
+.movie-rating{
     /* margin-bottom: 0%; */
     color: gray
 }
 
 img{
-    width: 75%;
-    margin-top: 10px;
+    width: 95%;
+    height: 80%;
+    margin-top: 3px;
 
 }
 
-/* .card-back:hover{
-    width: 250px;
-} */
+.card-back:hover{
+    box-shadow: 3px 3px 6px 0.5px #5814a0;
+}

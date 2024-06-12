@@ -3,12 +3,9 @@ import MovieCard from './MovieCard'
 import { useEffect, useState } from 'react'
 
 
-
-// let movie_data = now-playing[results]
-
-
 function MovieList() {
     const [apiData, fillData] = useState([]);
+    const [page_count, updatePage] = useState(1);
 
     const options = {
         method: 'GET',
@@ -20,49 +17,30 @@ function MovieList() {
     
     const fetchData = async () => {
           
-        const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options);
+        const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page='+ page_count, options);
         const data = await response.json();
 
-        fillData((prevData) => [...prevData, ...data.results]);
+        fillData([...apiData, ...data.results]);
+        // console.log(page_count);
     };
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [page_count]);
 
     // let movie_data = data.results;
     // console.log(data);
     // console.log(apiData);
     // console.log(apiData.length);
 
-    // for (let i = 0; i < apiData.length; i++){
-    //     if (apiData[i]){
-    //         // console.log(apiData[i]);
-    //     }
-    // }
-
-    // let testTitle = apiData[0].original_title;
-    // console.log(apiData[0]);
-    // if (apiData[0]){
-    //     console.log(apiData[0].original_title);
-    // }
-    // console.log("here");
-    // console.log(apiData[0][original_title]);
-    // console.log(testTitle);
-    // while (!apiData[0]){
-    //     let load = true;
-    // }
     let movie_cards = [];
     
-    for (let i = 0; i < 10; i++){
-        // console.log(i);
+    for (let i = 0; i < apiData.length; i++){
         let movie = apiData[i];
-        // console.log(movie);
         if (movie){
-            // console.log("true");
             movie_cards.push(<MovieCard id={i} title={movie.original_title} img={"https://image.tmdb.org/t/p/w220_and_h330_face" + movie.poster_path} rating={movie.vote_average}>
                 </MovieCard>);
-            console.log(movie_cards);
+            // console.log(movie_cards);
         };
     };
     // apiData.forEach((movie, index) => {
@@ -73,14 +51,7 @@ function MovieList() {
     // })
 
     function loadMore(){
-        for (let i = movie_cards.length; i < movie_cards.length + 10; i++){
-            let movie = apiData[i];
-            if (movie){
-                movie_cards.push(<MovieCard id={i} title={movie.original_title} img="https://image.tmdb.org/t/p/w220_and_h330_face{movie.poster_path}" rating={movie.vote_average}>
-                    </MovieCard>);
-                console.log(movie_cards);
-            };
-        };
+        updatePage(page_count + 1);
     }
 
     return (
@@ -89,15 +60,13 @@ function MovieList() {
                 <>
                     {movie_cards}
                 </>
-                <>
-                <button id='load-more'>  Load More  </button>
-                </>
                 {/* {apiData[0] ? (
                 <MovieCard title={apiData[0].original_title} img={apiData[0].poster_path} rating={apiData[0].vote_average}>
                 </MovieCard>
             ) : (<p>Loading...</p>)
             } */}
             </div>
+            <button id='load-more' onClick={loadMore}>  Load More  </button>
         </>
     );
 }
