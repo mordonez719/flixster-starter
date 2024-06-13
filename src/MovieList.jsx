@@ -31,7 +31,7 @@ function MovieList() {
 
     // let movie_data = data.results;
     // console.log(data);
-    // console.log(apiData);
+    console.log(apiData);
     // console.log(apiData.length);
 
     let movie_cards = [];
@@ -39,7 +39,7 @@ function MovieList() {
     for (let i = 0; i < apiData.length; i++){
         let movie = apiData[i];
         if (movie){
-            movie_cards.push(<MovieCard id={i} title={movie.original_title} img={"https://image.tmdb.org/t/p/w220_and_h330_face" + movie.poster_path} rating={movie.vote_average}>
+            movie_cards.push(<MovieCard id={i} movie={movie} title={movie.original_title} img={"https://image.tmdb.org/t/p/w220_and_h330_face" + movie.poster_path} rating={movie.vote_average}>
                 </MovieCard>);
             // console.log(movie_cards);
         };
