@@ -1,0 +1,9 @@
+/* .input-wrapper {
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+} */
+
+input:focus {
+    outline: none;
+}

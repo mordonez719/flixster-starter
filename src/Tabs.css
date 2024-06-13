@@ -1,0 +1,28 @@
+/* .tabs:not(:last-child){
+    border-right: ;
+} */
+
+.content {
+    display: none;
+}
+.active-tabs::before{
+    content: "";
+    display: block;
+}
+
+.active-tabs{
+    background-color: aqua;
+    border-bottom: 1px solid transparent;
+}
+
+.active-content{
+    display: block;
+}
+
+button{
+    margin: 5px;
+}
+
+input{
+    margin: 5px;
+}

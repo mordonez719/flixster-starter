@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 
 function MovieList() {
+
     const [apiData, fillData] = useState([]);
     const [page_count, updatePage] = useState(1);
 
