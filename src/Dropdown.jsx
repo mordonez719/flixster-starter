@@ -16,24 +16,23 @@ function Dropdown(props){
 
     return(
         <div className='dropdown-menu'>
-            <button onClick={handleOpen}>Sort By</button>
+            <div id="default-drop" onClick={handleOpen}>Sort By</div>
             {open ? (
-                <ul className='menu'>
-                    <li className='menu-item'>
-                        <button onClick={() => props.filt("")}>Now Playing</button>
-                    </li>
-                    <li className='menu-item'>
-                        <button onClick={() => props.filt("popularity.desc")}>Popular</button>
-                    </li>
-                    <li className='menu-item'>
-                        <button onClick={() => props.filt("original_title.asc")}>A-Z</button>
-                    </li>
-                    <li className='menu-item'>
-                        <button onClick={() => props.filt("original_title.desc")}>Z-A</button>
-                    </li>
-                </ul>
+                <section className='menu'>
+                    <div className='menu-item'>
+                        <div onClick={() => props.filt("")}>Now Playing</div>
+                    </div>
+                    <div className='menu-item'>
+                        <div onClick={() => props.filt("popularity.desc")}>Popular</div>
+                    </div>
+                    <div className='menu-item'>
+                        <div onClick={() => props.filt("original_title.asc")}>A-Z</div>
+                    </div>
+                    <div className='menu-item'>
+                        <div onClick={() => props.filt("original_title.desc")}>Z-A</div>
+                    </div>
+                </section>
             ): null}
-            {/* {open ? (<div>Opened</div>) : <div>Closed</div>} */}
         </div>
     );
 }

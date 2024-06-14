@@ -48,18 +48,10 @@ function Search() {
         };
     };
 
-    // const [searched, setSearched] = useState(0);
-    // function handleSearchEnter(){
-    //     setSearched(1);
-    // }
-
-    // function fetch(query){
-        
-    // }
 
     return (
         <div className='input-wrapper'>
-            <FaSearch id="search-icon"></FaSearch>
+            {/* <FaSearch id="search-icon"></FaSearch> */}
             <input type="text" value={searchQuery} 
             onChange={(e) => handleSearchChange(e.target.value)} 
             placeholder="Search" />

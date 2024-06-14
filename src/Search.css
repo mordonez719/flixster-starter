@@ -1,8 +1,15 @@
-/* .input-wrapper {
-    background-color: aliceblue;
+.input-wrapper {
+    /* background-color: aliceblue; */
     display: flex;
+    flex-direction: column;
     align-items: center;
-} */
+    padding: 15px;
+}
+
+input{
+    /* margin: 15px; */
+    width: 60%;
+}
 
 input:focus {
     outline: none;

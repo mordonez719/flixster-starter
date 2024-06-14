@@ -1,0 +1,33 @@
+#default-drop{
+    display: flex;
+    align-items: center;
+    width: 90px;
+    padding: 7px;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: rgba(149, 157, 165, 0.2)
+    0px 8px 24px;
+    cursor: pointer;
+    margin: 15px;
+    margin-left: 20px;
+    margin-bottom: 2px;
+}
+
+.menu{
+    width: 90px;
+    padding: 7px;
+    height: fit-content;
+    background-color: white;
+    margin: 15px;
+    margin-left: 20px;
+    border-radius: 0.5rem;
+    margin-top: 0px;
+}
+
+.menu-item{
+    border-color: gray;
+}
+
+.menu-item:hover{
+    background-color: #dbe3f8;
+}
