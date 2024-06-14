@@ -1,7 +1,7 @@
 import './Search.css'
 import MovieCard from './MovieCard'
 import { useEffect, useState } from 'react'
-import { FaSearch } from "react-icons/fa"
+import { FaSearch, FaTheaterMasks, FaTv } from "react-icons/fa"
 
 function Search() {
 
@@ -68,9 +68,6 @@ function Search() {
                     {movie_cards}
                 </>
             </div>
-        {/* <button onClick={fetch(searchQuery)}> Enter </button> */}
-        {/* {console.log(searchQuery)} */}
-        {/* {console.log(searching)} */}
         </div>
     )
 }

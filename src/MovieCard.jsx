@@ -12,16 +12,14 @@ function MovieCard(props) {
 
     return (
         <>
-            <div id={props.id} className='card-back'>
-                <img onClick={() => setButtonPopup(true)} className="movie-image" src={props.img}></img>
-                <p className="movie-title">{props.title}</p>
-                <p className="movie-rating">{props.rating}</p>
-                {/* {console.log("heresss")} */}
-                {/* {console.log(props.movie)} */}
+            <div id={props.id}>
+                <div className='card-back'>
+                    <img onClick={() => setButtonPopup(true)} className="movie-image" src={props.img}></img>
+                    <p className="movie-title">{props.title}</p>
+                    <p className="movie-rating">Rating: {props.rating} ⭐</p>
+                </div>
                 <MovieModal movie={props.movie} trigger={buttonPopup} setTrigger={setButtonPopup}>
-                    {/* <h3>Movie Modal</h3> */}
                 </MovieModal>
-                {/* <p className="movie-rating">{props.movie.vote_count}</p> */}
             </div>
         </>
     );

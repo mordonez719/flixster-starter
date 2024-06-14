@@ -26,3 +26,15 @@ button{
 input{
     margin: 5px;
 }
+
+#Now-Playing{
+    position: absolute;
+    top: 18px;
+    right: 100px;
+}
+
+#search-tab{
+    position: absolute;
+    top: 18px;
+    right: 10px;
+}

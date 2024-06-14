@@ -5,6 +5,7 @@ import './App.css'
 import './Tabs.css'
 import.meta.env.VITE_API_KEY
 import MovieList from './MovieList'
+import { FaTheaterMasks, FaTv } from "react-icons/fa"
 // import Tabs from './Tabs'
 
 const App = () => {
@@ -15,14 +16,17 @@ const App = () => {
 
   return(
   <div className="App">
-    <header className='App-header'>Flixster
+    <header className='App-header'>
+      <FaTv></FaTv>
+      FLIXSTER
+      <FaTheaterMasks></FaTheaterMasks>
     </header>
     <section>
     <div className='group-tabs'>
-      <button className={tabState === 0 ? "tabs active-tabs" : "tabs"} onClick={()=> toggleTab(0)}>
+      <button id="Now-Playing" className={tabState === 0 ? "tabs active-tabs" : "tabs"} onClick={()=> toggleTab(0)}>
         Now Playing
       </button>
-      <button className={tabState === 1 ? "tabs active-tabs" : "tabs"} onClick={()=> toggleTab(1)}>
+      <button id="search-tab" className={tabState === 1 ? "tabs active-tabs" : "tabs"} onClick={()=> toggleTab(1)}>
         Search
       </button>
     </div>

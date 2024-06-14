@@ -6,7 +6,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background:rgba(0,0,0,0.01);
+    background:rgba(0,0,0,0.25);
     /* opacity: 2%; */
 
     display: flex;
@@ -17,11 +17,12 @@
 
 .popup-content{
     position: relative;
-    padding: 30px;
+    /* padding: 20px; */
     width: 100%;
     max-width: 640px;
-    background-color: aliceblue;
+    background-color: #dbe3f8;
     /* opacity: 100%; */
+
 }
 
 .close-popup{
@@ -29,4 +30,24 @@
     top:16px;
     right: 16px;
     opacity: 100%;
+}
+
+.modal-img{
+    width: 100%;
+}
+
+#title{
+    margin: 2px;
+    font-family: ITF Devanagari Marathi;
+    font-size: x-large;
+}
+
+#date{
+    margin: 2px;
+}
+
+#overview{
+    margin: 20px;
+    margin-top: 15px;
+    /* margin-left: 15px; */
 }

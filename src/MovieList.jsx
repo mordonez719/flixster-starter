@@ -13,7 +13,7 @@ function MovieList() {
     const handleFilterChange = (newFilter) => {
         setFilter(newFilter);
         fillData([])
-        page_count(1)
+        updatePage(1)
     }
 
     const options = {
@@ -27,14 +27,14 @@ function MovieList() {
     const fetchData = async () => {
         
         if (filter === ""){
-            console.log("fetching now playing");
-            const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page='+ page_count, options);
+            // console.log("fetching now playing");
+            const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?include_adult=false&language=en-US&page='+ page_count, options);
             const data = await response.json();
 
             fillData([...apiData, ...data.results]);
         }
         else {
-            console.log("fetching filter");
+            // console.log("fetching filter");
             const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=' + page_count + '&sort_by=' + filter, options);
             const data = await response.json();
 
@@ -52,7 +52,7 @@ function MovieList() {
 
     // let movie_data = data.results;
     // console.log(data);
-    // console.log(apiData);
+    console.log(apiData);
     // console.log(apiData.length);
 
     let movie_cards = [];
@@ -79,7 +79,7 @@ function MovieList() {
     return (
         <>
         <Dropdown filt={handleFilterChange}></Dropdown>
-        {console.log(filter)}
+        {/* {console.log(filter)} */}
             <div className='movie-list'>
                 <>
                     {movie_cards}

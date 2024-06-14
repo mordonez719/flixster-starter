@@ -9,14 +9,14 @@ function MovieModal(props) {
                 <button className='close-popup' onClick={() => props.setTrigger(false)}>
                     Close
                 </button>
-                <img src={"https://image.tmdb.org/t/p/w220_and_h330_face" + props.movie.backdrop_path}></img>
-                <div>
+                <img className="modal-img" src={"https://image.tmdb.org/t/p/w533_and_h300_bestv2" + props.movie.backdrop_path}></img>
+                <div id="title">
                     {props.movie.original_title}
                 </div>
-                <div>
+                <div id="date">
                     {props.movie.release_date}
                 </div>
-                <div>
+                <div id="overview">
                     {props.movie.overview}
                 </div>
                 {props.children}
