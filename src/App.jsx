@@ -16,13 +16,8 @@ const App = () => {
   return(
   <div className="App">
     <header className='App-header'>Flixster
-    {/* <input type="text" placeholder="Search" /> */}
     </header>
     <section>
-    {/* <MovieList>
-    </MovieList> */}
-    {/* <Tabs>
-    </Tabs> */}
     <div className='group-tabs'>
       <button className={tabState === 0 ? "tabs active-tabs" : "tabs"} onClick={()=> toggleTab(0)}>
         Now Playing

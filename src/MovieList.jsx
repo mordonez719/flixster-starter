@@ -1,12 +1,20 @@
 import './MovieList.css'
 import MovieCard from './MovieCard'
 import { useEffect, useState } from 'react'
+import Dropdown from './Dropdown';
 
 
 function MovieList() {
 
     const [apiData, fillData] = useState([]);
     const [page_count, updatePage] = useState(1);
+    const [filter, setFilter] = useState("");
+
+    const handleFilterChange = (newFilter) => {
+        setFilter(newFilter);
+        fillData([])
+        page_count(1)
+    }
 
     const options = {
         method: 'GET',
@@ -17,21 +25,34 @@ function MovieList() {
       };
     
     const fetchData = async () => {
-          
-        const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page='+ page_count, options);
-        const data = await response.json();
+        
+        if (filter === ""){
+            console.log("fetching now playing");
+            const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page='+ page_count, options);
+            const data = await response.json();
 
-        fillData([...apiData, ...data.results]);
+            fillData([...apiData, ...data.results]);
+        }
+        else {
+            console.log("fetching filter");
+            const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=' + page_count + '&sort_by=' + filter, options);
+            const data = await response.json();
+
+            fillData([...apiData, ...data.results]);
+        }
+        // const data = await response.json();
+
+        // fillData([...apiData, ...data.results]);
         // console.log(page_count);
     };
 
     useEffect(() => {
         fetchData();
-    }, [page_count]);
+    }, [filter, page_count]);
 
     // let movie_data = data.results;
     // console.log(data);
-    console.log(apiData);
+    // console.log(apiData);
     // console.log(apiData.length);
 
     let movie_cards = [];
@@ -57,15 +78,12 @@ function MovieList() {
 
     return (
         <>
+        <Dropdown filt={handleFilterChange}></Dropdown>
+        {console.log(filter)}
             <div className='movie-list'>
                 <>
                     {movie_cards}
                 </>
-                {/* {apiData[0] ? (
-                <MovieCard title={apiData[0].original_title} img={apiData[0].poster_path} rating={apiData[0].vote_average}>
-                </MovieCard>
-            ) : (<p>Loading...</p>)
-            } */}
             </div>
             <button id='load-more' onClick={loadMore}>  Load More  </button>
         </>
