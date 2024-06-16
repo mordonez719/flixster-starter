@@ -1,5 +1,5 @@
 import './MovieCard.css'
-import MovieModal from './MovieModal.jsx'
+import MovieModal from './MovieModal'
 import { useState } from 'react';
 
 function MovieCard(props) {
