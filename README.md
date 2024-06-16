@@ -4,7 +4,7 @@ Submitted by: Michelle Ordonez
 
 Estimated time spent: 30 hours spent in total
 
-Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (optional): [Flixster Deployed Site](https://flixster-starter-zi5d.onrender.com/)
 
 ### Application Features
 
@@ -31,8 +31,8 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 #### STRETCH FEATURES
 
-- [ ] **Deployment**
-  - [ ] Website is deployed via Render.
+- [X] **Deployment**
+  - [X] Website is deployed via Render.
 - [ ] **Embedded Movie Trailers**
   - [ ] Within the popup displaying a movie's details, users can play the movie trailer.
 - [ ] **Watched Checkbox**
