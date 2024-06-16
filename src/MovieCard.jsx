@@ -7,7 +7,7 @@ function MovieCard(props) {
 
     return (
         <>
-            <div id={props.id}>
+            <div>
                 <div className='card-back'>
                     <img onClick={() => setButtonPopup(true)} className="movie-image" src={props.img}></img>
                     <p className="movie-title">{props.title}</p>
