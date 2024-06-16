@@ -16,26 +16,23 @@ function MovieList() {
         updatePage(1)
     }
 
-    const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMzI3MzU1OTdhYTI3OWM4MWU1NjBjOTNkMjkzZmZhMSIsInN1YiI6IjY2Njc3MjNiYWMzNzFiMGVjOWE5YmRlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wSxLDW8rfkP0AR-JqfTqcidEW65E-33Jb1Mz1V0EMyM'
-        }
-      };
     
     const fetchData = async () => {
         
         if (filter === ""){
             // console.log("fetching now playing");
-            const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?include_adult=false&language=en-US&page='+ page_count, options);
+            const apiKey = import.meta.env.VITE_API_KEY
+
+            const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&include_adult=false&language=en-US&page=`+ page_count);
             const data = await response.json();
 
             fillData([...apiData, ...data.results]);
         }
         else {
             // console.log("fetching filter");
-            const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=' + page_count + '&sort_by=' + filter, options);
+            const apiKey = import.meta.env.VITE_API_KEY
+
+            const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&include_adult=false&include_video=false&language=en-US&page=` + page_count + '&sort_by=' + filter);
             const data = await response.json();
 
             fillData([...apiData, ...data.results]);

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Search from './Search'
 import './App.css'
 import './Tabs.css'
-import.meta.env.VITE_API_KEY
 import MovieList from './MovieList'
 import { FaTheaterMasks, FaTv } from "react-icons/fa"
 
