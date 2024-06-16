@@ -9,10 +9,6 @@ function Dropdown(props){
         setOpen(!open);
     };
 
-    // const handleSelection = (selection) => {
-    //     props.filt(selection);
-    //     setOpen(false);
-    // }
 
     return(
         <div className='dropdown-menu'>

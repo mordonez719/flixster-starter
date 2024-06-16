@@ -23,7 +23,6 @@ function Search() {
         const data = await response.json();
 
         fillData([...data.results]);
-        // fillData([...apiData, ...data.results]);
 
     }
 
@@ -31,10 +30,7 @@ function Search() {
         console.log("changed")
         console.log("value: ", value)
         setSearchQuery(value);
-        // useEffect(() => {
-            fetchData(value);
-        // });
-        // fetchData(value);
+        fetchData(value);
     };
 
     let movie_cards = [];
@@ -44,14 +40,12 @@ function Search() {
         if (movie){
             movie_cards.push(<MovieCard id={i} movie={movie} title={movie.original_title} img={"https://image.tmdb.org/t/p/w220_and_h330_face" + movie.poster_path} rating={movie.vote_average}>
                 </MovieCard>);
-            // console.log(movie_cards);
         };
     };
 
 
     return (
         <div className='input-wrapper'>
-            {/* <FaSearch id="search-icon"></FaSearch> */}
             <input type="text" value={searchQuery} 
             onChange={(e) => handleSearchChange(e.target.value)} 
             placeholder="Search" />

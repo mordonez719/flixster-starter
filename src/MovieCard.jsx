@@ -5,11 +5,6 @@ import { useState } from 'react';
 function MovieCard(props) {
     const [buttonPopup, setButtonPopup] = useState(false);
 
-    // function openModal(){
-    //     <movieModal></movieModal>
-    //     // movieModal.style.display = block
-    // }
-
     return (
         <>
             <div id={props.id}>
