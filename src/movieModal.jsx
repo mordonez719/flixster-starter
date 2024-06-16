@@ -1,4 +1,4 @@
-import './MovieModal.css'
+import './movieModal.css'
 
 
 function MovieModal(props) {
