@@ -1,5 +1,5 @@
 import './MovieCard.css'
-import MovieModal from './MovieModal'
+import MovieModal from "./MovieModal"
 import { useState } from 'react';
 
 function MovieCard(props) {
@@ -13,8 +13,7 @@ function MovieCard(props) {
                     <p className="movie-title">{props.title}</p>
                     <p className="movie-rating">Rating: {props.rating} ⭐</p>
                 </div>
-                <MovieModal movie={props.movie} trigger={buttonPopup} setTrigger={setButtonPopup}>
-                </MovieModal>
+                <MovieModal movie={props.movie} trigger={buttonPopup} setTrigger={setButtonPopup}/>
             </div>
         </>
     );

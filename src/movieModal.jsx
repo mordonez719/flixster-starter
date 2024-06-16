@@ -1,5 +1,4 @@
 import './MovieModal.css'
-import React from 'react';
 
 
 function MovieModal(props) {
