@@ -3,7 +3,7 @@
 // Creates modal with additional information about movie passed in props
 // Called in MovieCard
 
-import './MovieModal.css'
+import './movieModal.css'
 
 
 function MovieModal(props) {
