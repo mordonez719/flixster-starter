@@ -1,3 +1,8 @@
+// Dropdown
+//
+// Created dropdown menu and uses passed props to update filter useState
+// Called in MovieList
+
 import './Dropdown.css'
 import React from 'react';
 import { useState } from 'react';

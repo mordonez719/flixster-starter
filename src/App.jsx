@@ -1,3 +1,9 @@
+// App
+//
+// Creates main Flixster page
+// Displays Now Playing and Search tabs with MovieLists
+
+
 import { useEffect, useState } from 'react'
 import Search from './Search'
 import './App.css'

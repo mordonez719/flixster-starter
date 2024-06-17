@@ -1,3 +1,9 @@
+// MovieList
+//
+// Fetched data for now playing & flter, includes load more option
+// Creates an array of MovieCards
+// Called in App
+
 import './MovieList.css'
 import MovieCard from './MovieCard'
 import { useEffect, useState } from 'react'
@@ -6,10 +12,13 @@ import Dropdown from './Dropdown';
 
 function MovieList() {
 
+    // Use States
     const [apiData, fillData] = useState([]);
     const [page_count, updatePage] = useState(1);
     const [filter, setFilter] = useState("");
 
+    // updates the filter as the user enteres a query, empties the data after the user enters a new search, 
+    // resets the page number to 1 after searching
     const handleFilterChange = (newFilter) => {
         setFilter(newFilter);
         fillData([])
@@ -18,9 +27,8 @@ function MovieList() {
 
     
     const fetchData = async () => {
-        
+        // default filter, returns now playing
         if (filter === ""){
-            // console.log("fetching now playing");
             const apiKey = import.meta.env.VITE_API_KEY
 
             const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&include_adult=false&language=en-US&page=`+ page_count);
@@ -29,7 +37,7 @@ function MovieList() {
             fillData([...apiData, ...data.results]);
         }
         else {
-            // console.log("fetching filter");
+        // returns results of selected filter
             const apiKey = import.meta.env.VITE_API_KEY
 
             const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&include_adult=false&include_video=false&language=en-US&page=` + page_count + '&sort_by=' + filter);
@@ -37,37 +45,24 @@ function MovieList() {
 
             fillData([...apiData, ...data.results]);
         }
-        // const data = await response.json();
-
-        // fillData([...apiData, ...data.results]);
-        // console.log(page_count);
     };
 
     useEffect(() => {
         fetchData();
     }, [filter, page_count]);
 
-    // let movie_data = data.results;
-    // console.log(data);
-    console.log(apiData);
-    // console.log(apiData.length);
 
     let movie_cards = [];
-    
+
+    // created movie cards to be returned
     for (let i = 0; i < apiData.length; i++){
         let movie = apiData[i];
         if (movie){
             movie_cards.push(<MovieCard key={i} movie={movie} title={movie.original_title} img={"https://image.tmdb.org/t/p/w220_and_h330_face" + movie.poster_path} rating={movie.vote_average}/>);
-            // console.log(movie_cards);
         };
     };
-    // apiData.forEach((movie, index) => {
-    //     if (movie){
-    //         movie_cards.push(<MovieCard id={index} title={movie.original_title} img={movie.poster_path} rating={movie.vote_average}>
-    //             </MovieCard>);
-    //     }
-    // })
 
+    // updates the current page number to fetch additional movies
     function loadMore(){
         updatePage(page_count + 1);
     }
@@ -75,7 +70,6 @@ function MovieList() {
     return (
         <>
         <Dropdown filt={handleFilterChange}></Dropdown>
-        {/* {console.log(filter)} */}
             <div className='movie-list'>
                 <>
                     {movie_cards}
