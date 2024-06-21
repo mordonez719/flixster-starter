@@ -45,7 +45,11 @@ const App = () => {
       </div>
     </div>
     </section>
-    <footer className='App-footer'></footer>
+    <footer className='App-footer'>
+      <p>© 2024 Kudos Board : Michelle Ordonez</p>
+      <p>1 Hacker Way</p>
+      <p>Flixster@meta.com</p>
+      </footer>
   </div>
   );
 }

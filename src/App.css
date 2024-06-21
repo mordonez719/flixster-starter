@@ -52,3 +52,11 @@ section{
   /* border: 2px dashed purple; */
   justify-content: space-evenly;
 }
+
+p{
+  font-size: small;
+}
+
+.App-footer{
+  padding: 9px;
+}
