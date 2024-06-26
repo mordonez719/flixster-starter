@@ -45,7 +45,7 @@ Deployed Application (optional): [Flixster Deployed Site](https://flixster-start
 
 ### Walkthrough Video
 
-`<div style="position: relative; padding-bottom: 66.72850958565245%; height: 0;"><iframe src="https://www.loom.com/embed/25205f66456e47808961ce4b7202680c?sid=4b0b53b7-07e8-42c8-be90-95b23f8a6aa5" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>`
+<div style="position: relative; padding-bottom: 66.72850958565245%; height: 0;"><iframe src="https://www.loom.com/embed/25205f66456e47808961ce4b7202680c?sid=4b0b53b7-07e8-42c8-be90-95b23f8a6aa5" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ### Reflection
 
